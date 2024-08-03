@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-03 14:31:56.746863",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "section_break_oozz",
+  "address_line1",
+  "city",
+  "postal_code",
+  "phone_number",
+  "column_break_mfxo",
+  "address_line2",
+  "state",
+  "country",
+  "is_default"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "\u7528\u6237",
+   "options": "Ly User"
+  },
+  {
+   "fieldname": "section_break_oozz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "address_line1",
+   "fieldtype": "Data",
+   "label": "\u5730\u5740\u884c1\uff08\u5b57\u7b26\u4e32\u7c7b\u578b\uff0c\u4e3b\u8981\u5730\u5740\u4fe1\u606f\uff0c\u5982\u8857\u9053\u540d\uff09"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "\u57ce\u5e02"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "\u90ae\u653f\u7f16\u7801\uff08\u5b57\u7b26\u4e32\u7c7b\u578b\uff09"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Phone",
+   "label": "\u8054\u7cfb\u7535\u8bdd"
+  },
+  {
+   "fieldname": "column_break_mfxo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_line2",
+   "fieldtype": "Data",
+   "label": "\u5730\u5740\u884c2\uff08\u53ef\u9009\uff0c\u8865\u5145\u5730\u5740\u4fe1\u606f\uff0c\u5982\u516c\u5bd3\u53f7\uff09"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "\u7701/\u5dde"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "\u56fd\u5bb6"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "label": "\u9ed8\u8ba4\u5730\u5740"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-03 14:36:14.824087",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Address",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

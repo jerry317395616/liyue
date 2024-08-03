@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-03 12:09:04.190321",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "price",
+  "column_break_wlzh",
+  "quantity",
+  "total_price"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "\u5546\u54c1",
+   "options": "Ly Item"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "\u5355\u4ef7"
+  },
+  {
+   "fieldname": "column_break_wlzh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "label": "\u6570\u91cf"
+  },
+  {
+   "fieldname": "total_price",
+   "fieldtype": "Currency",
+   "label": "\u603b\u4ef7"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-03 12:11:18.186812",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Order Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

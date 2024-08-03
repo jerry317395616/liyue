@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-03 12:04:12.304319",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "status",
+  "column_break_yvfc",
+  "order_date",
+  "total_amount",
+  "section_break_tslw",
+  "order_item"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "\u5ba2\u6237",
+   "options": "Ly User"
+  },
+  {
+   "fieldname": "column_break_yvfc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "order_date",
+   "fieldtype": "Datetime",
+   "label": "\u8ba2\u5355\u65e5\u671f"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "\u8ba2\u5355\u72b6\u6001",
+   "options": "\u5df2\u652f\u4ed8\n\u5f85\u53d1\u8d27\n\u5df2\u53d1\u8d27\n\u5df2\u5b8c\u6210"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "\u8ba2\u5355\u603b\u91d1\u989d"
+  },
+  {
+   "fieldname": "section_break_tslw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "order_item",
+   "fieldtype": "Table",
+   "label": "\u8ba2\u5355\u5546\u54c1",
+   "options": "Ly Order Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-21 23:20:14.430762",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Sales Order",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

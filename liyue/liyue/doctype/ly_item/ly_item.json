@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "autoname": "format:LY-ITEM-{YYYY}-{#####}",
+ "creation": "2024-08-03 11:44:04.747989",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "\u5546\u54c1\u4fe1\u606f_section",
+  "item_name",
+  "price",
+  "is_published",
+  "video",
+  "column_break_fcsu",
+  "category",
+  "stock_quantity",
+  "image",
+  "\u5546\u54c1\u63cf\u8ff0_section",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "\u5546\u54c1\u4fe1\u606f_section",
+   "fieldtype": "Section Break",
+   "label": "\u5546\u54c1\u4fe1\u606f"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u5546\u54c1\u540d\u79f0"
+  },
+  {
+   "fieldname": "column_break_fcsu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "\u5206\u7c7b",
+   "options": "Ly Item Category"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "\u57fa\u7840\u4ef7\u683c"
+  },
+  {
+   "fieldname": "\u5546\u54c1\u63cf\u8ff0_section",
+   "fieldtype": "Section Break",
+   "label": "\u5546\u54c1\u63cf\u8ff0"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "\u5546\u54c1\u63cf\u8ff0"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "\u5546\u54c1\u56fe\u7247"
+  },
+  {
+   "fieldname": "stock_quantity",
+   "fieldtype": "Int",
+   "label": "\u5e93\u5b58\u6570\u91cf"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "\u4e0a\u67b6"
+  },
+  {
+   "fieldname": "video",
+   "fieldtype": "Attach",
+   "label": "\u89c6\u9891"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-21 22:58:06.159413",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Item",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
