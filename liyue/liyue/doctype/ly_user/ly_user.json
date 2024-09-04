@@ -120,7 +120,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-03 11:57:44.641492",
+ "modified": "2024-09-04 13:50:14.150672",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly User",
@@ -135,7 +135,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "liyue",
    "share": 1,
    "write": 1
   }
