@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-03 09:19:12.308035",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "\u901a\u77e5\u8bb0\u5f55_section",
+  "content",
+  "column_break_htfp",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "\u901a\u77e5\u8bb0\u5f55_section",
+   "fieldtype": "Section Break",
+   "label": "\u901a\u77e5\u8bb0\u5f55"
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u901a\u77e5\u5185\u5bb9"
+  },
+  {
+   "fieldname": "column_break_htfp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "\u901a\u77e5\u65e5\u671f"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-03 11:57:09.905928",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Notification",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

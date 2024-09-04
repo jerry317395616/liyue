@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "autoname": "format:LY-USER-{YYYY}-{#####}",
+ "creation": "2024-08-03 08:54:35.809371",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "\u4f1a\u5458\u4fe1\u606f_section",
+  "user_name",
+  "wechat_id",
+  "points",
+  "wx_openid",
+  "column_break_rbgy",
+  "phone",
+  "member_level",
+  "expiration_date",
+  "\u79ef\u5206\u8bb0\u5f55_tab",
+  "points_records",
+  "\u901a\u77e5\u8bb0\u5f55_tab",
+  "\u901a\u77e5\u8bb0\u5f55_section",
+  "notifications",
+  "\u7eed\u8d39\u8bb0\u5f55_tab",
+  "\u7eed\u8d39\u8bb0\u5f55_section",
+  "table_membership_payment"
+ ],
+ "fields": [
+  {
+   "fieldname": "\u4f1a\u5458\u4fe1\u606f_section",
+   "fieldtype": "Section Break",
+   "label": "\u4f1a\u5458\u4fe1\u606f"
+  },
+  {
+   "fieldname": "user_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u7528\u6237\u540d"
+  },
+  {
+   "fieldname": "wechat_id",
+   "fieldtype": "Data",
+   "label": "\u5fae\u4fe1ID"
+  },
+  {
+   "fieldname": "points",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u79ef\u5206"
+  },
+  {
+   "fieldname": "wx_openid",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "column_break_rbgy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u624b\u673a\u53f7"
+  },
+  {
+   "fieldname": "member_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "\u4f1a\u5458\u7b49\u7ea7",
+   "options": "\u666e\u901a\u4f1a\u5458\n\u4ed8\u8d39\u4f1a\u5458\n\u5e74\u8d39\u4f1a\u5458"
+  },
+  {
+   "fieldname": "expiration_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u4f1a\u5458\u5230\u671f\u65e5\u671f"
+  },
+  {
+   "fieldname": "\u79ef\u5206\u8bb0\u5f55_tab",
+   "fieldtype": "Tab Break",
+   "label": "\u79ef\u5206\u8bb0\u5f55"
+  },
+  {
+   "fieldname": "points_records",
+   "fieldtype": "Table",
+   "label": "\u79ef\u5206",
+   "options": "Ly Points Record"
+  },
+  {
+   "fieldname": "\u901a\u77e5\u8bb0\u5f55_tab",
+   "fieldtype": "Tab Break",
+   "label": "\u901a\u77e5\u8bb0\u5f55"
+  },
+  {
+   "fieldname": "\u901a\u77e5\u8bb0\u5f55_section",
+   "fieldtype": "Section Break",
+   "label": "\u901a\u77e5\u8bb0\u5f55"
+  },
+  {
+   "fieldname": "notifications",
+   "fieldtype": "Table",
+   "label": "\u901a\u77e5\u8bb0\u5f55",
+   "options": "Ly Notification"
+  },
+  {
+   "fieldname": "\u7eed\u8d39\u8bb0\u5f55_tab",
+   "fieldtype": "Tab Break",
+   "label": "\u7eed\u8d39\u8bb0\u5f55"
+  },
+  {
+   "fieldname": "\u7eed\u8d39\u8bb0\u5f55_section",
+   "fieldtype": "Section Break",
+   "label": "\u7eed\u8d39\u8bb0\u5f55"
+  },
+  {
+   "fieldname": "table_membership_payment",
+   "fieldtype": "Table",
+   "options": "Ly Membership Payment"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-03 11:57:44.641492",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly User",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "creation": "2024-08-03 09:10:17.102896",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "\u79ef\u5206\u8bb0\u5f55_section",
+  "points",
+  "date",
+  "column_break_jqgt",
+  "reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "\u79ef\u5206\u8bb0\u5f55_section",
+   "fieldtype": "Section Break",
+   "label": "\u79ef\u5206\u8bb0\u5f55"
+  },
+  {
+   "fieldname": "points",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u79ef\u5206\u6570"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "\u65e5\u671f"
+  },
+  {
+   "fieldname": "column_break_jqgt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u79ef\u5206\u83b7\u53d6\u539f\u56e0"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-03 11:57:31.582249",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Points Record",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
