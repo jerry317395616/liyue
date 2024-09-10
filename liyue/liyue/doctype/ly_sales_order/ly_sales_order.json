@@ -11,7 +11,9 @@
   "order_date",
   "total_amount",
   "section_break_tslw",
-  "order_item"
+  "order_item",
+  "\u8868\u6587\u4fe1\u606f_section",
+  "form_generation"
  ],
  "fields": [
   {
@@ -42,18 +44,30 @@
   },
   {
    "fieldname": "section_break_tslw",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "\u5546\u54c1\u4fe1\u606f"
   },
   {
    "fieldname": "order_item",
    "fieldtype": "Table",
    "label": "\u8ba2\u5355\u5546\u54c1",
    "options": "Ly Order Item"
+  },
+  {
+   "fieldname": "\u8868\u6587\u4fe1\u606f_section",
+   "fieldtype": "Section Break",
+   "label": "\u8868\u6587\u4fe1\u606f"
+  },
+  {
+   "fieldname": "form_generation",
+   "fieldtype": "Table",
+   "label": "\u8868\u6587",
+   "options": "Ly Form Generation"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-21 23:20:14.430762",
+ "modified": "2024-09-10 16:49:06.302095",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Sales Order",

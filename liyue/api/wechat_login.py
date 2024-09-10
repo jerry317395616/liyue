@@ -46,6 +46,7 @@ def wechat_login():
 			return {
 				"token": token,
 				"user_id": user.name,
+				"openid": openid,
 				"session_key": session_key
 			}
 		else:
@@ -53,6 +54,7 @@ def wechat_login():
 			return {
 				"token": "",
 				"user_id": "",
+				"openid": openid,
 				"session_key": session_key
 			}
 	else:

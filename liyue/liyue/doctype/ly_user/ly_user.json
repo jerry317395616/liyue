@@ -8,7 +8,6 @@
  "field_order": [
   "\u4f1a\u5458\u4fe1\u606f_section",
   "user_name",
-  "wechat_id",
   "points",
   "wx_openid",
   "column_break_rbgy",
@@ -22,7 +21,9 @@
   "notifications",
   "\u7eed\u8d39\u8bb0\u5f55_tab",
   "\u7eed\u8d39\u8bb0\u5f55_section",
-  "table_membership_payment"
+  "table_membership_payment",
+  "\u6536\u5bc4\u5730\u5740_tab",
+  "address"
  ],
  "fields": [
   {
@@ -37,11 +38,6 @@
    "label": "\u7528\u6237\u540d"
   },
   {
-   "fieldname": "wechat_id",
-   "fieldtype": "Data",
-   "label": "\u5fae\u4fe1ID"
-  },
-  {
    "fieldname": "points",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -49,7 +45,9 @@
   },
   {
    "fieldname": "wx_openid",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "\u5fae\u4fe1ID",
+   "unique": 1
   },
   {
    "fieldname": "column_break_rbgy",
@@ -59,7 +57,8 @@
    "fieldname": "phone",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "\u624b\u673a\u53f7"
+   "label": "\u624b\u673a\u53f7",
+   "unique": 1
   },
   {
    "fieldname": "member_level",
@@ -115,12 +114,22 @@
    "fieldname": "table_membership_payment",
    "fieldtype": "Table",
    "options": "Ly Membership Payment"
+  },
+  {
+   "fieldname": "\u6536\u5bc4\u5730\u5740_tab",
+   "fieldtype": "Tab Break",
+   "label": "\u6536\u5bc4\u5730\u5740"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Table",
+   "options": "Ly Address"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-04 13:50:14.150672",
+ "modified": "2024-09-10 15:13:23.374645",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly User",
@@ -135,7 +144,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "liyue",
+   "role": "System Manager",
    "share": 1,
    "write": 1
   }
