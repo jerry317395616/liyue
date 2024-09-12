@@ -14,6 +14,7 @@
   "phone",
   "member_level",
   "expiration_date",
+  "referral_code",
   "\u79ef\u5206\u8bb0\u5f55_tab",
   "points_records",
   "\u901a\u77e5\u8bb0\u5f55_tab",
@@ -23,7 +24,9 @@
   "\u7eed\u8d39\u8bb0\u5f55_section",
   "table_membership_payment",
   "\u6536\u5bc4\u5730\u5740_tab",
-  "address"
+  "address",
+  "\u88ab\u5f15\u8350\u4eba_tab",
+  "referred_user"
  ],
  "fields": [
   {
@@ -118,18 +121,33 @@
   {
    "fieldname": "\u6536\u5bc4\u5730\u5740_tab",
    "fieldtype": "Tab Break",
-   "label": "\u6536\u5bc4\u5730\u5740"
+   "label": "\u796d\u7940\u4fe1\u606f"
   },
   {
    "fieldname": "address",
    "fieldtype": "Table",
    "options": "Ly Address"
+  },
+  {
+   "fieldname": "referral_code",
+   "fieldtype": "Data",
+   "label": "\u5f15\u8350\u7801"
+  },
+  {
+   "fieldname": "\u88ab\u5f15\u8350\u4eba_tab",
+   "fieldtype": "Tab Break",
+   "label": "\u88ab\u5f15\u8350\u4eba"
+  },
+  {
+   "fieldname": "referred_user",
+   "fieldtype": "Table",
+   "options": "Ly Referred"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-10 15:13:23.374645",
+ "modified": "2024-09-11 22:44:56.696592",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly User",

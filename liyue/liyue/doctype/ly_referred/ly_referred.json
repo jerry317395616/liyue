@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-11 22:43:40.675609",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "referred_user"
+ ],
+ "fields": [
+  {
+   "fieldname": "referred_user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "\u88ab\u5f15\u8350\u4eba",
+   "options": "Ly User"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-11 22:45:08.647154",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Referred",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

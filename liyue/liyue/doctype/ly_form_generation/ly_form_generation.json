@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-10 16:43:54.618337",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "\u8868\u6587_section",
+  "type",
+  "deceased_person_name",
+  "address",
+  "count"
+ ],
+ "fields": [
+  {
+   "fieldname": "\u8868\u6587_section",
+   "fieldtype": "Section Break",
+   "label": "\u8868\u6587"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "\u7c7b\u578b",
+   "options": "\u57ce\u968d\u8868\u6587\n\u571f\u5730\u8868\u6587"
+  },
+  {
+   "fieldname": "deceased_person_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u9633\u4e0a\u4eba\u59d3\u540d"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u5730\u5740"
+  },
+  {
+   "fieldname": "count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "\u6570\u91cf"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-10 16:48:33.179932",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Form Generation",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
