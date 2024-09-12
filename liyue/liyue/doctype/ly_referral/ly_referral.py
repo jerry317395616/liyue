@@ -6,7 +6,7 @@ import frappe
 from frappe.model.document import Document
 
 
-class LyUser(Document):
+class LyReferral(Document):
 	def before_insert(self):
 		# 自动生成引荐码
 		self.referral_code = self.generate_unique_referral_code()
@@ -19,5 +19,5 @@ class LyUser(Document):
 				random.choices(string.ascii_uppercase + string.digits, k=length))
 
 			# 检查引荐码是否唯一，防止重复
-			if not frappe.db.exists('Ly User', {'referral_code': referral_code}):
+			if not frappe.db.exists('Ly Referral', {'referral_code': referral_code}):
 				return referral_code

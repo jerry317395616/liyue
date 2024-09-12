@@ -1,0 +1,39 @@
+{
+ "app": "liyue",
+ "charts": [],
+ "content": "[{\"id\":\"TGXNtG2fJL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">\u793c\u6708</span>\",\"col\":12}},{\"id\":\"LoAiHEVQzy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u7528\u6237\",\"col\":3}}]",
+ "creation": "2024-09-12 11:59:01.953264",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "dashboard",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "\u793c\u6708",
+ "links": [],
+ "modified": "2024-09-12 12:08:26.789611",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "\u793c\u6708",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "\u7528\u6237",
+   "link_to": "Ly User",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "\u793c\u6708"
+}

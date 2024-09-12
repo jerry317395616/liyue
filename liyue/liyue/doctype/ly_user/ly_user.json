@@ -131,7 +131,9 @@
   {
    "fieldname": "referral_code",
    "fieldtype": "Data",
-   "label": "\u5f15\u8350\u7801"
+   "label": "\u5f15\u8350\u7801",
+   "read_only": 1,
+   "unique": 1
   },
   {
    "fieldname": "\u88ab\u5f15\u8350\u4eba_tab",
@@ -147,7 +149,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-11 22:44:56.696592",
+ "modified": "2024-09-12 12:23:25.204116",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly User",
