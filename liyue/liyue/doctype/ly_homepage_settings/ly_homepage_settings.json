@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-14 21:22:36.682577",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "set_name",
+  "homepage_logo",
+  "homepage_bg_video",
+  "homepage_elements_bg",
+  "enabled",
+  "column_break_nuuj",
+  "logo_image",
+  "bg_video",
+  "bg_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "homepage_logo",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u9996\u9875Logo"
+  },
+  {
+   "fieldname": "homepage_bg_video",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u9996\u9875\u80cc\u666f\u89c6\u9891"
+  },
+  {
+   "fieldname": "homepage_elements_bg",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u9996\u9875\u5143\u7d20\u80cc\u666f\u56fe"
+  },
+  {
+   "fieldname": "column_break_nuuj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "logo_image",
+   "fieldtype": "Attach Image",
+   "label": "Logo \u56fe\u7247"
+  },
+  {
+   "fieldname": "bg_video",
+   "fieldtype": "Attach",
+   "label": "\u4e0a\u4f20\u80cc\u666f\u89c6\u9891"
+  },
+  {
+   "fieldname": "bg_image",
+   "fieldtype": "Attach Image",
+   "label": "\u4e0a\u4f20\u5143\u7d20\u80cc\u666f"
+  },
+  {
+   "fieldname": "set_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u540d\u79f0"
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "\u542f\u7528"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-14 21:53:17.774174",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Homepage Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
