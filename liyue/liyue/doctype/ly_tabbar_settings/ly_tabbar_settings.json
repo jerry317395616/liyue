@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-15 10:37:03.020855",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "icon_name",
+  "home_icon",
+  "membership_icon",
+  "ritual_icon",
+  "orders_icon",
+  "profile_icon",
+  "enable"
+ ],
+ "fields": [
+  {
+   "fieldname": "home_icon",
+   "fieldtype": "Attach Image",
+   "label": "\u9996\u9875\u56fe\u6807"
+  },
+  {
+   "fieldname": "membership_icon",
+   "fieldtype": "Attach Image",
+   "label": "\u4f1a\u5458\u56fe\u6807"
+  },
+  {
+   "fieldname": "ritual_icon",
+   "fieldtype": "Attach Image",
+   "label": "\u796d\u7940\u56fe\u6807"
+  },
+  {
+   "fieldname": "orders_icon",
+   "fieldtype": "Attach Image",
+   "label": "\u8ba2\u5355\u56fe\u6807"
+  },
+  {
+   "fieldname": "profile_icon",
+   "fieldtype": "Attach Image",
+   "label": "\u6211\u7684\u56fe\u6807"
+  },
+  {
+   "fieldname": "icon_name",
+   "fieldtype": "Data",
+   "label": "\u540d\u79f0"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable",
+   "fieldtype": "Check",
+   "label": "\u542f\u7528"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-15 10:41:23.946418",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly TabBar Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
