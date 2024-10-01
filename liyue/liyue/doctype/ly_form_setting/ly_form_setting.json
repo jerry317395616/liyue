@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-01 21:02:15.897169",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "\u56fe\u72471_section",
+  "bg_img_1",
+  "\u56fe\u72472_section",
+  "bg_img_2",
+  "\u56fe\u72473_section",
+  "bg_img_3",
+  "\u56fe\u72474_section",
+  "bg_img_4",
+  "\u56fe\u72475_section",
+  "bg_img_5"
+ ],
+ "fields": [
+  {
+   "fieldname": "\u56fe\u72471_section",
+   "fieldtype": "Section Break",
+   "label": "\u56fe\u72471"
+  },
+  {
+   "fieldname": "bg_img_1",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "\u56fe\u72472_section",
+   "fieldtype": "Section Break",
+   "label": "\u56fe\u72472"
+  },
+  {
+   "fieldname": "bg_img_2",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "\u56fe\u72473_section",
+   "fieldtype": "Section Break",
+   "label": "\u56fe\u72473"
+  },
+  {
+   "fieldname": "bg_img_3",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "\u56fe\u72474_section",
+   "fieldtype": "Section Break",
+   "label": "\u56fe\u72474"
+  },
+  {
+   "fieldname": "bg_img_4",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "\u56fe\u72475_section",
+   "fieldtype": "Section Break",
+   "label": "\u56fe\u72475"
+  },
+  {
+   "fieldname": "bg_img_5",
+   "fieldtype": "Attach Image"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-01 21:11:35.964790",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Form Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-01 11:59:22.639087",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bg_img_1",
+  "bg_img_2"
+ ],
+ "fields": [
+  {
+   "fieldname": "bg_img_1",
+   "fieldtype": "Attach Image",
+   "label": "\u80cc\u666f\u56fe1"
+  },
+  {
+   "fieldname": "bg_img_2",
+   "fieldtype": "Attach Image",
+   "label": "\u80cc\u666f\u56fe2"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-01 20:33:59.345930",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Ritual Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

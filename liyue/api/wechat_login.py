@@ -12,8 +12,8 @@ def wechat_login():
 	# 获取微信小程序的 AppID 和 AppSecret
 	# app_id = frappe.db.get_single_value('Wechat Settings', 'app_id')
 	# app_secret = frappe.db.get_single_value('Wechat Settings', 'app_secret')
-	app_id = 'wxa2d16964c79c53ca'
-	app_secret = '46dc08a0d7182a92a0eb390c92bbfa47'
+	app_id = 'wx6fbd514e4ef67ba3'
+	app_secret = '87e7e144939bee97bfe3485a7f83c32c'
 
 	# 微信登录 API URL
 	url = "https://api.weixin.qq.com/sns/jscode2session"

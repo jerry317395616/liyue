@@ -10,6 +10,7 @@
   "user_name",
   "points",
   "wx_openid",
+  "email",
   "column_break_rbgy",
   "phone",
   "member_level",
@@ -144,12 +145,17 @@
    "fieldname": "referred_user",
    "fieldtype": "Table",
    "options": "Ly Referred"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "\u90ae\u7bb1"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-12 15:13:27.122911",
+ "modified": "2024-09-25 12:54:22.192129",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly User",

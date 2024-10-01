@@ -6,12 +6,19 @@
  "engine": "InnoDB",
  "field_order": [
   "icon_name",
+  "section_break_acmr",
   "home_icon",
   "membership_icon",
   "ritual_icon",
   "orders_icon",
   "profile_icon",
-  "enable"
+  "enable",
+  "column_break_atyk",
+  "home_icon_select",
+  "membership_icon_select",
+  "ritual_icon_select",
+  "orders_icon_select",
+  "profile_icon_select"
  ],
  "fields": [
   {
@@ -49,11 +56,44 @@
    "fieldname": "enable",
    "fieldtype": "Check",
    "label": "\u542f\u7528"
+  },
+  {
+   "fieldname": "section_break_acmr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_atyk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "home_icon_select",
+   "fieldtype": "Attach Image",
+   "label": "\u9996\u9875\u9009\u4e2d"
+  },
+  {
+   "fieldname": "membership_icon_select",
+   "fieldtype": "Attach Image",
+   "label": "\u4f1a\u5458\u9009\u4e2d"
+  },
+  {
+   "fieldname": "ritual_icon_select",
+   "fieldtype": "Attach Image",
+   "label": "\u796d\u7940\u9009\u4e2d"
+  },
+  {
+   "fieldname": "orders_icon_select",
+   "fieldtype": "Attach Image",
+   "label": "\u8ba2\u5355\u9009\u4e2d"
+  },
+  {
+   "fieldname": "profile_icon_select",
+   "fieldtype": "Attach Image",
+   "label": "\u6211\u7684\u9009\u4e2d"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-15 10:41:23.946418",
+ "modified": "2024-09-25 12:51:28.222311",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly TabBar Settings",

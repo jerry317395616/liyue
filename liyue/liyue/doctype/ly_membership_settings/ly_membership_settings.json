@@ -10,7 +10,20 @@
   "block_type",
   "block_icon",
   "block_sort",
-  "block_detail"
+  "block_detail",
+  "\u80cc\u666f\u56fe\u7247_tab",
+  "\u56fe\u72471_section",
+  "title_1",
+  "column_break_bpzu",
+  "bg_1",
+  "\u56fe\u72472_section",
+  "title_2",
+  "column_break_kgnn",
+  "bg_2",
+  "\u56fe\u72473_section",
+  "title_3",
+  "column_break_qkly",
+  "bg_3"
  ],
  "fields": [
   {
@@ -48,11 +61,70 @@
    "fieldname": "\u4f1a\u5458\u9875\u9762\u8bbe\u7f6e_section",
    "fieldtype": "Section Break",
    "label": "\u4f1a\u5458\u9875\u9762\u8bbe\u7f6e"
+  },
+  {
+   "fieldname": "\u80cc\u666f\u56fe\u7247_tab",
+   "fieldtype": "Tab Break",
+   "label": "\u80cc\u666f\u56fe\u7247"
+  },
+  {
+   "fieldname": "\u56fe\u72471_section",
+   "fieldtype": "Section Break",
+   "label": "\u56fe\u72471"
+  },
+  {
+   "fieldname": "title_1",
+   "fieldtype": "Data",
+   "label": "\u540d\u79f0"
+  },
+  {
+   "fieldname": "column_break_bpzu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bg_1",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "\u56fe\u72472_section",
+   "fieldtype": "Section Break",
+   "label": "\u56fe\u72472"
+  },
+  {
+   "fieldname": "title_2",
+   "fieldtype": "Data",
+   "label": "\u540d\u79f0"
+  },
+  {
+   "fieldname": "column_break_kgnn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bg_2",
+   "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "\u56fe\u72473_section",
+   "fieldtype": "Section Break",
+   "label": "\u56fe\u72473"
+  },
+  {
+   "fieldname": "title_3",
+   "fieldtype": "Data",
+   "label": "\u540d\u79f0"
+  },
+  {
+   "fieldname": "column_break_qkly",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bg_3",
+   "fieldtype": "Attach Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-15 12:09:34.122603",
+ "modified": "2024-10-01 11:40:08.543976",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Membership Settings",

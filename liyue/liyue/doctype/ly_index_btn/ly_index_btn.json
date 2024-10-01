@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-28 22:58:10.036241",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bg_video"
+ ],
+ "fields": [
+  {
+   "fieldname": "bg_video",
+   "fieldtype": "Attach",
+   "label": "\u89c6\u9891"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-28 22:59:13.072152",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Index Btn",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

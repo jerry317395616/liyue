@@ -1,48 +1,53 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-09-15 12:06:39.585235",
+ "creation": "2024-09-30 13:59:06.659538",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "sub_title",
-  "detail_sort",
-  "detail_icon"
+  "btn_img",
+  "font_img",
+  "sort",
+  "link_vido"
  ],
  "fields": [
   {
    "fieldname": "title",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "\u5185\u5bb9"
+   "label": "\u540d\u79f0"
   },
   {
-   "fieldname": "sub_title",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "\u5b50\u6807\u9898"
+   "fieldname": "btn_img",
+   "fieldtype": "Attach Image",
+   "label": "\u6309\u94ae\u56fe"
   },
   {
-   "fieldname": "detail_sort",
+   "fieldname": "font_img",
+   "fieldtype": "Attach Image",
+   "label": "\u6587\u5b57\u56fe"
+  },
+  {
+   "fieldname": "sort",
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "\u5e8f\u53f7"
   },
   {
-   "fieldname": "detail_icon",
-   "fieldtype": "Attach Image",
-   "label": "\u56fe\u6807"
+   "fieldname": "link_vido",
+   "fieldtype": "Attach",
+   "label": "\u94fe\u63a5\u89c6\u9891"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-15 12:13:19.507604",
+ "modified": "2024-09-30 14:05:55.330553",
  "modified_by": "Administrator",
  "module": "Liyue",
- "name": "Ly Membership Detail",
+ "name": "Ly Home Region Setting",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "creation",
