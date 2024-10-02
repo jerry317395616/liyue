@@ -8,6 +8,7 @@
   "\u5546\u54c1\u4fe1\u606f_section",
   "item_name",
   "price",
+  "vip_price",
   "is_published",
   "video",
   "column_break_fcsu",
@@ -76,11 +77,16 @@
    "fieldname": "video",
    "fieldtype": "Attach",
    "label": "\u89c6\u9891"
+  },
+  {
+   "fieldname": "vip_price",
+   "fieldtype": "Currency",
+   "label": "\u4f1a\u5458\u4ef7\u683c"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-21 22:58:06.159413",
+ "modified": "2024-10-02 18:24:41.915965",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Item",
