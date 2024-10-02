@@ -27,7 +27,7 @@ def add_points_record(user_id, points):
 @frappe.whitelist(allow_guest=True)
 def save_address():
 	try:
-		# 获取前端发送的数据
+		# 获取前端传递的 user_id 和批量地址信息
 		user_id = frappe.form_dict.get('user_id')
 		addresses = frappe.form_dict.get('addresses')
 
@@ -37,25 +37,37 @@ def save_address():
 		# 获取用户文档
 		user = frappe.get_doc('Ly User', user_id)
 
-		# 先清除现有的 address 子表
-		user.set('address', [])
-
-		# 批量插入新地址数据
 		for address in addresses:
+			# 检查是否存在四个字段同时相同的记录
+			existing_address = next((
+				addr for addr in user.address
+				if addr.deceased_person_name == address.get('deceased_person_name') and
+				   addr.address == address.get('address') and
+				   addr.name_of_deceased_relative == address.get('name_of_deceased_relative') and
+				   addr.burial_address == address.get('burial_address')
+			), None)
+
+			if existing_address:
+				# 如果找到完全匹配的记录，跳过保存
+				frappe.log(
+					f"Skipping address: {address.get('deceased_person_name')}, already exists.")
+				continue
+
+			# 如果没有找到匹配的记录，添加一个新记录
 			user.append('address', {
 				'deceased_person_name': address.get('deceased_person_name'),
 				'address': address.get('address'),
-				'phone': address.get('phone'),  # 确保前端传递了 phone 字段
+				'phone': address.get('phone', ''),  # 如果没有传递 phone 字段，默认设为空
 				'name_of_deceased_relative': address.get('name_of_deceased_relative'),
-				'relationship': address.get('relationship'),
+				'relationship': address.get('relationship', ''),  # 如果没有传递 relationship 字段，默认设为空
 				'burial_address': address.get('burial_address'),
 				'parent': user_id,
 				'parentfield': 'address',
 				'parenttype': 'Ly User',
-				'doctype': 'Ly Address',
+				'doctype': 'Ly Address'
 			})
 
-		# 保存主表和子表
+		# 保存并提交更改
 		user.save()
 		frappe.db.commit()
 
