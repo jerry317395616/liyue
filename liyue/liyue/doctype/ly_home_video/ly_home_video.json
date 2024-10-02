@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-02 17:28:54.172898",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "sort",
+  "column_break_jzkb",
+  "home_video"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u540d\u79f0"
+  },
+  {
+   "fieldname": "sort",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "\u5e8f\u53f7"
+  },
+  {
+   "fieldname": "column_break_jzkb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "home_video",
+   "fieldtype": "Attach",
+   "label": "\u89c6\u9891"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-02 17:30:19.273237",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "Ly Home Video",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

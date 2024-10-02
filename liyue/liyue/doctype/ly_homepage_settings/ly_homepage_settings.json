@@ -26,7 +26,9 @@
   "column_break_nkyi",
   "bg_image_2_2",
   "\u533a\u57df3_tab",
-  "font_bg_img"
+  "font_bg_img",
+  "\u9996\u9875\u89c6\u9891_tab",
+  "home_video"
  ],
  "fields": [
   {
@@ -142,11 +144,21 @@
    "fieldname": "font_bg_img",
    "fieldtype": "Attach Image",
    "label": "\u6587\u5b57\u80cc\u666f"
+  },
+  {
+   "fieldname": "\u9996\u9875\u89c6\u9891_tab",
+   "fieldtype": "Tab Break",
+   "label": "\u9996\u9875\u89c6\u9891"
+  },
+  {
+   "fieldname": "home_video",
+   "fieldtype": "Table",
+   "options": "Ly Home Video"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-01 11:27:33.248220",
+ "modified": "2024-10-02 17:31:17.201647",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Homepage Settings",
