@@ -26,8 +26,8 @@ def create_order(**kwargs):
     app_id = 'wx0cdfbdd1a9a07850'
     mch_id = '1694598681'
     api_key = 'aB3dE5fG7hI9jK1LmN0pQrStUvWxYz2B'
-    mch_cert = '/Users/kakaxi/cert/1694598681_20241006_cert/apiclient_cert.pem'  # 证书路径
-    mch_key = '/Users/kakaxi/cert/1694598681_20241006_cert/apiclient_key.pem'    # 证书密钥路径
+    mch_cert = '/etc/wechatpay/apiclient_cert.pem'  # 证书路径
+    mch_key = '/etc/wechatpay/apiclient_key.pem'    # 证书密钥路径
     notify_url = 'https://your-domain.com/notify'  # 微信支付结果通知接口
 
     # 初始化 WeChatPay 对象
