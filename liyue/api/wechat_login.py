@@ -6,7 +6,7 @@ import requests
 def wechat_login():
 	# 获取传递的 code 参数
 	code = frappe.form_dict.get('code')
-
+	phone = frappe.form_dict.get('phone')
 	if not code:
 		frappe.throw("Missing 'code' parameter")
 	# 获取微信小程序的 AppID 和 AppSecret
@@ -37,7 +37,7 @@ def wechat_login():
 		openid = result['openid']
 		session_key = result['session_key']
 		# 根据 openid 创建或获取用户
-		user = get_or_create_user(openid)
+		user = get_or_create_user(openid,phone)
 
 		# 如果用户存在，则生成 token 并返回
 		if user:
@@ -64,12 +64,22 @@ def wechat_login():
 		frappe.throw("WeChat login failed")
 
 
-def get_or_create_user(openid):
+def get_or_create_user(openid,phone):
 	# 查找用户是否已经存在
 	user_name = frappe.db.get_value("Ly User", {"wx_openid": openid}, "name")
-
 	if not user_name:
-		# 如果用户不存在，直接返回 None
-		return None
+		# 如果用户不存在，创建新的 Ly User 文档
+		user = frappe.get_doc({
+			"doctype": "Ly User",
+			"wx_openid": openid,
+			"phone": phone,
+			# 根据需要添加其他字段，例如：
+			# "first_name": "默认名",
+			# "last_name": "默认姓",
+			# "email": f"{openid}@example.com",
+		})
+		user.insert(ignore_permissions=True)
+		frappe.db.commit()
+		return user
 	else:
 		return frappe.get_doc("Ly User", user_name)
