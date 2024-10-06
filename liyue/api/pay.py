@@ -5,6 +5,7 @@ import time
 import random
 from wechatpy.pay import WeChatPay
 from wechatpy.pay.utils import calculate_signature
+from wechatpy.utils import random_string
 from wechatpy.exceptions import WeChatPayException
 import frappe
 from frappe import _
@@ -41,7 +42,7 @@ def create_order(**kwargs):
     )
 
     # 生成微信支付统一下单所需的参数
-    total_fee = int(float(total_price) * 100)  # 微信支付以分为单位
+    total_fee = int(float(total_price) * 100)  # 微信支付以“分”为单位
     out_trade_no = order_number
     body = '商品支付'  # 商品描述
 
@@ -49,6 +50,9 @@ def create_order(**kwargs):
     openid = data.get('openid')
     if not openid:
         return {'error': '缺少用户 openid'}
+
+    # 生成随机字符串 nonce_str
+    nonce_str = random_string(32)
 
     try:
         # 调用统一下单接口
@@ -58,25 +62,35 @@ def create_order(**kwargs):
             total_fee=total_fee,
             notify_url=notify_url,
             out_trade_no=out_trade_no,
-            user_id=openid
+            user_id=openid,
+            nonce_str=nonce_str
         )
+
+        # 获取 prepay_id
+        prepay_id = order.get('prepay_id')
+        if not prepay_id:
+            return {'error': '无法获取 prepay_id'}
 
         # 生成支付参数
         timeStamp = str(int(time.time()))
-        nonceStr = wechat_pay.pay.nonce_str
-        package = f"prepay_id={order.get('prepay_id')}"
+        package = f"prepay_id={prepay_id}"
         signType = 'MD5'
-        paySign = calculate_signature({
+
+        # 构造签名所需参数
+        pay_data = {
             'appId': app_id,
             'timeStamp': timeStamp,
-            'nonceStr': nonceStr,
+            'nonceStr': nonce_str,
             'package': package,
             'signType': signType,
-        }, api_key)
+        }
+
+        # 生成支付签名
+        paySign = calculate_signature(pay_data, api_key)
 
         payment_data = {
             'timeStamp': timeStamp,
-            'nonceStr': nonceStr,
+            'nonceStr': nonce_str,
             'package': package,
             'signType': signType,
             'paySign': paySign
