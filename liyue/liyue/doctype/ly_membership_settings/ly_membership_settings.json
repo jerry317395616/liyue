@@ -7,10 +7,8 @@
  "field_order": [
   "\u4f1a\u5458\u9875\u9762\u8bbe\u7f6e_section",
   "block_name",
-  "block_type",
-  "block_icon",
   "block_sort",
-  "block_detail",
+  "price",
   "\u80cc\u666f\u56fe\u7247_tab",
   "\u56fe\u72471_section",
   "title_1",
@@ -30,19 +28,7 @@
    "fieldname": "block_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "\u677f\u5757\u540d\u79f0"
-  },
-  {
-   "fieldname": "block_type",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "\u7c7b\u578b",
-   "options": "\u5217\u8868\n\u56fe\u7247"
-  },
-  {
-   "fieldname": "block_icon",
-   "fieldtype": "Attach Image",
-   "label": "\u677f\u5757\u56fe\u6807"
+   "label": "\u4e3b\u9898\u540d\u79f0"
   },
   {
    "fieldname": "block_sort",
@@ -50,12 +36,6 @@
    "in_list_view": 1,
    "label": "\u5e8f\u53f7",
    "unique": 1
-  },
-  {
-   "fieldname": "block_detail",
-   "fieldtype": "Table",
-   "label": "\u5185\u5bb9",
-   "options": "Ly Membership Detail"
   },
   {
    "fieldname": "\u4f1a\u5458\u9875\u9762\u8bbe\u7f6e_section",
@@ -120,11 +100,16 @@
   {
    "fieldname": "bg_3",
    "fieldtype": "Attach Image"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "\u4f1a\u5458\u4ef7\u683c"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-01 11:40:08.543976",
+ "modified": "2024-10-07 12:41:48.073026",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Membership Settings",

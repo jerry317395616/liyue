@@ -6,9 +6,6 @@
  "engine": "InnoDB",
  "field_order": [
   "set_name",
-  "homepage_logo",
-  "homepage_bg_video",
-  "homepage_elements_bg",
   "enabled",
   "column_break_nuuj",
   "logo_image",
@@ -19,10 +16,12 @@
   "\u533a\u57df2_tab",
   "1_section",
   "title_2_1",
+  "link_1",
   "column_break_ssnp",
   "bg_image_2_1",
   "2_section",
   "title_2_2",
+  "link_2",
   "column_break_nkyi",
   "bg_image_2_2",
   "\u533a\u57df3_tab",
@@ -31,24 +30,6 @@
   "home_video"
  ],
  "fields": [
-  {
-   "fieldname": "homepage_logo",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "\u9996\u9875Logo"
-  },
-  {
-   "fieldname": "homepage_bg_video",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "\u9996\u9875\u80cc\u666f\u89c6\u9891"
-  },
-  {
-   "fieldname": "homepage_elements_bg",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "\u9996\u9875\u5143\u7d20\u80cc\u666f\u56fe"
-  },
   {
    "fieldname": "column_break_nuuj",
    "fieldtype": "Column Break"
@@ -154,11 +135,21 @@
    "fieldname": "home_video",
    "fieldtype": "Table",
    "options": "Ly Home Video"
+  },
+  {
+   "fieldname": "link_1",
+   "fieldtype": "Data",
+   "label": "\u94fe\u63a5"
+  },
+  {
+   "fieldname": "link_2",
+   "fieldtype": "Data",
+   "label": "\u94fe\u63a5"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 17:31:17.201647",
+ "modified": "2024-10-07 10:51:53.037663",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Homepage Settings",
