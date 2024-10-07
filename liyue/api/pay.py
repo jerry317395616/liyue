@@ -2,6 +2,7 @@
 
 import json
 import time
+import datetime  # 新增导入
 import random
 from wechatpy.pay import WeChatPay
 from wechatpy.pay.utils import calculate_signature
@@ -19,9 +20,36 @@ def create_order(**kwargs):
     items = data.get('items')
     total_price = data.get('totalPrice')
     address_list = data.get('addressList')
+	order_type =  data.get('orderType')
 
     # TODO: 这里可以将订单数据保存到数据库中
     # save_order_to_database(data)
+	# 获取用户的 openid，需要客户端传递或在服务器端获取
+	openid = data.get('openid')
+	if not openid:
+		return {'error': '缺少用户 openid'}
+
+	# 如果订单类型是会员充值，保存数据到 Ly User 的子表 Ly Membership Payment
+	if order_type == '会员充值':
+		try:
+			# 根据 openid 查询 Ly User
+			user = frappe.get_doc('Ly User', {'openid': openid})
+		except frappe.DoesNotExistError:
+			return {'error': '用户不存在'}
+
+		# 创建新的 Ly Membership Payment 条目
+		amount = total_price
+		date = datetime.datetime.now()
+
+		# 向子表添加新的记录
+		user.append('table_membership_payment', {
+			'amount': amount,
+			'date': date
+		})
+
+		# 保存用户文档
+		user.save(ignore_permissions=True)
+		frappe.db.commit()
 
     # 微信支付配置
     app_id = 'wx0cdfbdd1a9a07850'
