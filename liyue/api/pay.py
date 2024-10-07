@@ -20,7 +20,7 @@ def create_order(**kwargs):
     items = data.get('items')
     total_price = data.get('totalPrice')
     address_list = data.get('addressList')
-	order_type =  data.get('orderType')
+    order_type =  data.get('orderType')
 
     # TODO: 这里可以将订单数据保存到数据库中
     # save_order_to_database(data)
