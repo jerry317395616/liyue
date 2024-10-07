@@ -35,7 +35,7 @@ def create_order(**kwargs):
     if order_type == '会员充值':
         try:
             # 根据 openid 查询 Ly User
-            user = frappe.get_doc('Ly User', {'openid': openid})
+            user = frappe.get_doc('Ly User', {'wx_openid': openid})
         except frappe.DoesNotExistError:
             return {'error': '用户不存在'}
 
