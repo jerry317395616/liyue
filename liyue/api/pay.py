@@ -13,6 +13,7 @@ from frappe import _
 from frappe.utils import now_datetime
 
 
+
 @frappe.whitelist(allow_guest=True)
 def create_order(**kwargs):
     # 获取请求中的订单数据
@@ -23,6 +24,7 @@ def create_order(**kwargs):
     total_price = data.get('totalPrice')
     address_list = data.get('addressList')
     order_type = data.get('orderType')
+    attach_data = order_type
 
     # TODO: 这里可以将订单数据保存到数据库中
     # save_order_to_database(data)
@@ -70,7 +72,7 @@ def create_order(**kwargs):
     api_key = 'aB3dE5fG7hI9jK1LmN0pQrStUvWxYz2B'
     mch_cert = '/etc/wechatpay/apiclient_cert.pem'  # 证书路径
     mch_key = '/etc/wechatpay/apiclient_key.pem'    # 证书密钥路径
-    notify_url = 'https://your-domain.com/notify'   # 微信支付结果通知接口
+    notify_url = 'https://admin.xawellcare.com/test-ly/notify'   # 微信支付结果通知接口
 
     # 初始化 WeChatPay 对象
     wechat_pay = WeChatPay(
@@ -99,7 +101,8 @@ def create_order(**kwargs):
             notify_url=notify_url,
             out_trade_no=out_trade_no,
             user_id=openid,
-            nonce_str=nonce_str
+            nonce_str=nonce_str,
+            attach=attach_data
         )
 
         # 获取 prepay_id
@@ -187,3 +190,98 @@ def create_sales_order():
     # 保存文档
     sales_order.insert()
     frappe.db.commit()
+
+
+
+@frappe.whitelist(allow_guest=True)
+def wechat_pay_notify():
+    # 获取微信发送的支付结果通知数据（XML 格式）
+    try:
+        # 从请求中获取原始的 XML 数据
+        xml_data = frappe.request.data
+        # 将 XML 数据解析为字典
+        wechat_pay = get_wechat_pay_client()
+        result_data = wechat_pay.parse_payment_result(xml_data)
+
+        # 验证签名
+        if result_data['return_code'] == 'SUCCESS' and result_data['result_code'] == 'SUCCESS':
+            out_trade_no = result_data['out_trade_no']  # 商户订单号
+            transaction_id = result_data['transaction_id']  # 微信支付订单号
+            total_fee = result_data['total_fee']  # 订单金额，单位为分
+            openid = result_data['openid']  # 用户标识
+
+            # 根据商户订单号查询订单并更新状态
+            update_order_status(out_trade_no, transaction_id, total_fee, openid)
+
+            # 返回成功响应给微信服务器
+            return wechat_success_response()
+        else:
+            # 处理失败的情况
+            error_message = result_data.get('return_msg', 'Unknown error')
+            frappe.log_error(message=error_message, title="WeChat Pay Notify Error")
+            return wechat_fail_response(error_message)
+    except WeChatPayException as e:
+        frappe.log_error(message=str(e), title="WeChat Pay Exception")
+        return wechat_fail_response(str(e))
+    except Exception as e:
+        frappe.log_error(message=str(e), title="WeChat Pay Notify Exception")
+        return wechat_fail_response(str(e))
+
+
+def get_wechat_pay_client():
+    # 微信支付配置
+    app_id = 'wx0cdfbdd1a9a07850'
+    mch_id = '1694598681'
+    api_key = 'aB3dE5fG7hI9jK1LmN0pQrStUvWxYz2B'
+    mch_cert = '/etc/wechatpay/apiclient_cert.pem'  # 证书路径
+    mch_key = '/etc/wechatpay/apiclient_key.pem'    # 证书密钥路径
+
+    # 初始化 WeChatPay 对象
+    wechat_pay = WeChatPay(
+        appid=app_id,
+        api_key=api_key,
+        mch_id=mch_id,
+        mch_cert=mch_cert,
+        mch_key=mch_key,
+        timeout=30
+    )
+    return wechat_pay
+
+
+def update_order_status(out_trade_no, transaction_id, total_fee, openid):
+    # 根据商户订单号查询订单
+    try:
+        sales_order = frappe.get_doc('Ly Sales Order', {'order_number': out_trade_no})
+    except frappe.DoesNotExistError:
+        frappe.log_error(message=f"订单未找到，订单号：{out_trade_no}", title="Order Not Found")
+        return
+
+    # 更新订单状态为已支付
+    sales_order.status = '已支付'
+    sales_order.transaction_id = transaction_id
+    sales_order.payment_time = now_datetime()
+    sales_order.save(ignore_permissions=True)
+    frappe.db.commit()
+
+    # 其他业务逻辑，例如通知用户等
+    # ...
+
+
+def wechat_success_response():
+    # 返回给微信服务器的成功响应
+    return """
+    <xml>
+      <return_code><![CDATA[SUCCESS]]></return_code>
+      <return_msg><![CDATA[OK]]></return_msg>
+    </xml>
+    """
+
+
+def wechat_fail_response(message):
+    # 返回给微信服务器的失败响应
+    return f"""
+    <xml>
+      <return_code><![CDATA[FAIL]]></return_code>
+      <return_msg><![CDATA[{message}]]></return_msg>
+    </xml>
+    """
