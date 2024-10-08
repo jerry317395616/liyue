@@ -10,6 +10,7 @@ from wechatpy.utils import random_string
 from wechatpy.exceptions import WeChatPayException
 import frappe
 from frappe import _
+from frappe.utils import now_datetime
 
 
 @frappe.whitelist(allow_guest=True)
@@ -52,6 +53,16 @@ def create_order(**kwargs):
         # 保存用户文档
         user.save(ignore_permissions=True)
         frappe.db.commit()
+	if order_type == '商品支付':
+		try:
+			user = frappe.get_doc('Ly User', {'wx_openid': openid})
+		except frappe.DoesNotExistError:
+			return {'error': '用户不存在'}
+		amount = total_price
+		date = datetime.datetime.now()
+		# 保存订单信息
+		create_sales_order()
+
 
     # 微信支付配置
     app_id = 'wx0cdfbdd1a9a07850'
@@ -130,3 +141,48 @@ def create_order(**kwargs):
             'error': '微信支付下单失败',
             'detail': str(e)
         }
+
+def create_sales_order():
+    # 创建 Ly Sales Order 文档实例
+    sales_order = frappe.get_doc({
+        "doctype": "Ly Sales Order",
+        "customer": "LY-USER-2024-00019",  # 替换为实际的客户名称或ID
+        "status": "已支付",
+        "order_date": now_datetime(),  # 或者使用实际的订单日期
+        "total_amount": 1500.00,  # 订单总金额
+        "order_item": [
+            {
+                "doctype": "Ly Order Item",
+                "item_code": "ITEM001",
+                "item_name": "商品A",
+                "qty": 2,
+                "rate": 500.00,
+                "amount": 1000.00
+            },
+            {
+                "doctype": "Ly Order Item",
+                "item_code": "ITEM002",
+                "item_name": "商品B",
+                "qty": 1,
+                "rate": 500.00,
+                "amount": 500.00
+            }
+        ],
+        "form_generation": [
+            {
+                "doctype": "Ly Form Generation",
+                "form_name": "表单1",
+                "form_data": "表单内容1"
+            },
+            {
+                "doctype": "Ly Form Generation",
+                "form_name": "表单2",
+                "form_data": "表单内容2"
+            }
+        ]
+    })
+
+    # 保存文档
+    sales_order.insert()
+    frappe.db.commit()
+    print(f"订单已成功创建，订单号为: {sales_order.name}")
