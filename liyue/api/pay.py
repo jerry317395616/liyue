@@ -53,16 +53,16 @@ def create_order(**kwargs):
         # 保存用户文档
         user.save(ignore_permissions=True)
         frappe.db.commit()
-	if order_type == '商品支付':
-		try:
-			user = frappe.get_doc('Ly User', {'wx_openid': openid})
-		except frappe.DoesNotExistError:
-			return {'error': '用户不存在'}
-		amount = total_price
-		date = datetime.datetime.now()
-		# 保存订单信息
-		create_sales_order()
 
+    if order_type == '商品支付':
+        try:
+            user = frappe.get_doc('Ly User', {'wx_openid': openid})
+        except frappe.DoesNotExistError:
+            return {'error': '用户不存在'}
+        amount = total_price
+        date = datetime.datetime.now()
+        # 保存订单信息
+        create_sales_order()
 
     # 微信支付配置
     app_id = 'wx0cdfbdd1a9a07850'
@@ -125,22 +125,24 @@ def create_order(**kwargs):
         paySign = calculate_signature(pay_data, api_key)
 
         payment_data = {
-            'timeStamp': timeStamp,
-            'nonceStr': nonce_str,
-            'package': package,
-            'signType': signType,
-            'paySign': paySign
+            'paymentData': {
+                'timeStamp': timeStamp,
+                'nonceStr': nonce_str,
+                'package': package,
+                'signType': signType,
+                'paySign': paySign
+            }
         }
 
-        return {
-            'paymentData': payment_data
-        }
+        return payment_data
+
     except WeChatPayException as e:
         frappe.log_error(message=str(e), title="WeChat Pay Error")
         return {
             'error': '微信支付下单失败',
             'detail': str(e)
         }
+
 
 def create_sales_order():
     # 创建 Ly Sales Order 文档实例
