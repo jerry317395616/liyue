@@ -152,10 +152,10 @@ def create_sales_order(customer,total_amount):
     # 创建 Ly Sales Order 文档实例
     sales_order = frappe.get_doc({
         "doctype": "Ly Sales Order",
-        "customer": "LY-USER-2024-00013",  # 替换为实际的客户名称或ID
+        "customer": customer,  # 替换为实际的客户名称或ID
         "status": "待支付",
         "order_date": now_datetime(),  # 或者使用实际的订单日期
-        "total_amount": 1500.00,  # 订单总金额
+        "total_amount": total_amount,  # 订单总金额
         "order_item": [
             {
                 "doctype": "Ly Order Item",
