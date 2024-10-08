@@ -25,6 +25,7 @@ def create_order(**kwargs):
     address_list = data.get('addressList')
     order_type = data.get('orderType')
     attach_data = order_type
+    user_id = data.get('user_id')
 
     # TODO: 这里可以将订单数据保存到数据库中
     # save_order_to_database(data)
@@ -64,7 +65,7 @@ def create_order(**kwargs):
         amount = total_price
         date = datetime.datetime.now()
         # 保存订单信息
-        create_sales_order()
+        create_sales_order(user_id,amount)
 
     # 微信支付配置
     app_id = 'wx0cdfbdd1a9a07850'
@@ -147,12 +148,12 @@ def create_order(**kwargs):
         }
 
 
-def create_sales_order():
+def create_sales_order(customer,total_amount):
     # 创建 Ly Sales Order 文档实例
     sales_order = frappe.get_doc({
         "doctype": "Ly Sales Order",
         "customer": "LY-USER-2024-00013",  # 替换为实际的客户名称或ID
-        "status": "已支付",
+        "status": "待支付",
         "order_date": now_datetime(),  # 或者使用实际的订单日期
         "total_amount": 1500.00,  # 订单总金额
         "order_item": [
