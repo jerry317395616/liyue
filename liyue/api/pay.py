@@ -187,4 +187,3 @@ def create_sales_order():
     # 保存文档
     sales_order.insert()
     frappe.db.commit()
-    print(f"订单已成功创建，订单号为: {sales_order.name}")
