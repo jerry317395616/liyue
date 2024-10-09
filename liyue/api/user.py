@@ -66,10 +66,11 @@ def save_address():
 				'parenttype': 'Ly User',
 				'doctype': 'Ly Address'
 			})
+			# 保存并提交更改
+			user.save()
+			frappe.db.commit()
 
-		# 保存并提交更改
-		user.save()
-		frappe.db.commit()
+
 
 		return {"status": "success", "message": "Addresses updated successfully"}
 
