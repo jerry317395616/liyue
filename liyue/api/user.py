@@ -71,7 +71,7 @@ def save_address():
 
         # 如果添加了新的地址记录，则保存并提交更改
         if should_save:
-            user.save()
+            user.save(ignore_permissions=True)
             frappe.db.commit()
             return {"status": "success", "message": "Addresses updated successfully"}
         else:
