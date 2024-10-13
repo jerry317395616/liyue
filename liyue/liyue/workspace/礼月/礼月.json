@@ -1,0 +1,134 @@
+{
+ "app": "liyue",
+ "charts": [],
+ "content": "[{\"id\":\"qMT39-t9-s\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">\u793c\u6708</span>\",\"col\":12}},{\"id\":\"i500P1gjr5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u5ba2\u6237\u4fe1\u606f\",\"col\":3}},{\"id\":\"g9FPBJrNVo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u5546\u54c1\u4fe1\u606f\",\"col\":3}},{\"id\":\"O_FM0qRJuE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u5f15\u8350\u7edf\u8ba1\",\"col\":3}},{\"id\":\"x2pRBk3LlD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"\u8ba2\u5355\u4fe1\u606f\",\"col\":3}},{\"id\":\"NqoZ91VZAa\",\"type\":\"card\",\"data\":{\"card_name\":\"\u8bbe\u7f6e\",\"col\":4}}]",
+ "creation": "2024-09-14 17:53:28.663992",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "dashboard",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "\u793c\u6708",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u8bbe\u7f6e",
+   "link_count": 6,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u9996\u9875\u8bbe\u7f6e",
+   "link_count": 0,
+   "link_to": "Ly Homepage Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "TabBar\u8bbe\u7f6e",
+   "link_count": 0,
+   "link_to": "Ly TabBar Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u4f1a\u5458\u8bbe\u7f6e",
+   "link_count": 0,
+   "link_to": "Ly Membership Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u5e7f\u544a\u9875\u9762\u8bbe\u7f6e",
+   "link_count": 0,
+   "link_to": "Ly Index Page",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u9996\u9875\u6309\u94ae\u8bbe\u7f6e",
+   "link_count": 0,
+   "link_to": "Ly Index Btn",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "\u767b\u5f55\u9875\u9762\u8bbe\u7f6e",
+   "link_count": 0,
+   "link_to": "Ly Logging Page Setting",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-10-13 20:15:39.687083",
+ "modified_by": "Administrator",
+ "module": "Liyue",
+ "name": "\u793c\u6708",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "\u5546\u54c1\u4fe1\u606f",
+   "link_to": "Ly Item",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "\u5f15\u8350\u7edf\u8ba1",
+   "link_to": "Ly Referral",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "\u8ba2\u5355\u4fe1\u606f",
+   "link_to": "Ly Sales Order",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "\u5ba2\u6237\u4fe1\u606f",
+   "link_to": "Ly User",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "\u793c\u6708",
+ "type": "Workspace"
+}
