@@ -8,7 +8,6 @@
  "field_order": [
   "item",
   "price",
-  "\u796d\u7940\u4fe1\u606f",
   "column_break_wlzh",
   "quantity",
   "total_price"
@@ -42,19 +41,12 @@
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "\u603b\u4ef7"
-  },
-  {
-   "fieldname": "\u796d\u7940\u4fe1\u606f",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "\u796d\u7940\u4fe1\u606f",
-   "options": "Ly Address"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-11 22:05:47.957966",
+ "modified": "2024-10-18 09:11:04.062266",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Order Item",
