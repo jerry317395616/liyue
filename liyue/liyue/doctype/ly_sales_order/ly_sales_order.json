@@ -73,6 +73,7 @@
   {
    "fieldname": "order_number",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "\u8ba2\u5355\u7f16\u53f7"
   },
   {
@@ -83,7 +84,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-16 22:41:05.742789",
+ "modified": "2024-10-18 14:05:24.220672",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Sales Order",
