@@ -65,7 +65,7 @@ def create_order(**kwargs):
         amount = total_price
         date = datetime.datetime.now()
         # 保存订单信息
-        create_sales_order(user_id,amount,order_number,items)
+        create_sales_order(user_id,amount,order_number,items,address_list)
 
     # 微信支付配置
     app_id = 'wx0cdfbdd1a9a07850'
@@ -148,7 +148,7 @@ def create_order(**kwargs):
         }
 
 
-def create_sales_order(customer,total_amount,order_number,items):
+def create_sales_order(customer,total_amount,order_number,items,address_list):
     # 创建 Ly Sales Order 文档实例
     sales_order = frappe.get_doc({
         "doctype": "Ly Sales Order",
@@ -158,18 +158,7 @@ def create_sales_order(customer,total_amount,order_number,items):
         "total_amount": total_amount,  # 订单总金额
         "order_number": order_number,
         "order_item": items,
-        "form_generation": [
-            {
-                "doctype": "Ly Form Generation",
-                "form_name": "表单1",
-                "form_data": "表单内容1"
-            },
-            {
-                "doctype": "Ly Form Generation",
-                "form_name": "表单2",
-                "form_data": "表单内容2"
-            }
-        ]
+        "form_generation": address_list
     })
 
     # 保存文档
