@@ -86,7 +86,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-02 18:24:41.915965",
+ "modified": "2024-10-18 08:54:01.891768",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Item",
@@ -106,7 +106,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "item_name"
 }
