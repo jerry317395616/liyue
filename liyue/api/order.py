@@ -68,3 +68,45 @@ def cancel_order():
 		frappe.log_error(message=str(e), title="Delete Order Error")
 		frappe.throw("An unexpected error occurred while deleting the order.",
 					 frappe.ValidationError)
+
+
+@frappe.whitelist(allow_guest=True)
+def get_order_detail():
+    """
+    获取指定订单的详细信息
+    """
+    user_id = frappe.form_dict.get('user_id')
+    order_id = frappe.form_dict.get('order_id')
+
+    if not user_id:
+        frappe.throw("Missing 'user_id' parameter", frappe.MissingArgumentError)
+
+    if not order_id:
+        frappe.throw("Missing 'order_id' parameter", frappe.MissingArgumentError)
+
+    try:
+        # 获取订单文档
+        order = frappe.get_doc('Ly Sales Order', order_id)
+
+        # 检查订单是否属于该用户
+        if order.customer != user_id:
+            frappe.throw("You are not authorized to view this order", frappe.PermissionError)
+
+        # 构建订单详细信息
+        order_details = order
+
+
+        return {
+            'success': True,
+            'message': order_details
+        }
+
+    except frappe.DoesNotExistError:
+        frappe.throw("Order with ID {0} does not exist".format(order_id),
+                     frappe.DoesNotExistError)
+    except frappe.PermissionError as e:
+        frappe.throw(str(e), frappe.PermissionError)
+    except Exception as e:
+        frappe.log_error(message=str(e), title="Get Order Detail Error")
+        frappe.throw("An unexpected error occurred while retrieving the order details.",
+                     frappe.ValidationError)
