@@ -40,7 +40,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "\u8ba2\u5355\u72b6\u6001",
-   "options": "\u5f85\u652f\u4ed8\n\u5df2\u652f\u4ed8\n\u5f85\u53d1\u8d27\n\u5df2\u53d1\u8d27\n\u5df2\u5b8c\u6210"
+   "options": "\u5f85\u652f\u4ed8\n\u5df2\u652f\u4ed8\n\u5f85\u53d1\u8d27\n\u5df2\u53d1\u8d27\n\u5df2\u5b8c\u6210\n\u5df2\u53d6\u6d88"
   },
   {
    "fieldname": "total_amount",
@@ -84,7 +84,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-18 14:05:24.220672",
+ "modified": "2024-10-19 14:53:43.390178",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Sales Order",
