@@ -26,7 +26,7 @@ def create_order(**kwargs):
     order_type = data.get('orderType')
     attach_data = order_type
     user_id = data.get('user_id')
-
+    my_notify_url = 'https://liyue.nanhengliyue.com/api/method/liyue.api.pay.wechat_pay_notify'
     # TODO: 这里可以将订单数据保存到数据库中
     # save_order_to_database(data)
 
@@ -46,12 +46,13 @@ def create_order(**kwargs):
         # 创建新的 Ly Membership Payment 条目
         amount = total_price
         date = datetime.datetime.now()
-
+        my_notify_url = 'https://liyue.nanhengliyue.com/api/method/liyue.api.pay.wechat_pay_notify_member'
         # 向子表添加新的记录
         user.append('table_membership_payment', {
             'amount': amount,
             'date': date,
-			'order_number':order_number
+			'order_number':order_number,
+			'pay_state':'待支付'
         })
 
         # 保存用户文档
@@ -74,7 +75,7 @@ def create_order(**kwargs):
     api_key = 'aB3dE5fG7hI9jK1LmN0pQrStUvWxYz2B'
     mch_cert = '/etc/wechatpay/apiclient_cert.pem'  # 证书路径
     mch_key = '/etc/wechatpay/apiclient_key.pem'    # 证书密钥路径
-    notify_url = 'https://liyue.nanhengliyue.com/api/method/liyue.api.pay.wechat_pay_notify'   # 微信支付结果通知接口
+    notify_url = my_notify_url   # 微信支付结果通知接口
 
     # 初始化 WeChatPay 对象
     wechat_pay = WeChatPay(
@@ -187,6 +188,48 @@ def wechat_pay_notify():
 
             # 根据商户订单号查询订单并更新状态
             update_order_status(out_trade_no, transaction_id, total_fee, openid)
+
+            # 返回成功响应给微信服务器
+            return wechat_success_response()
+        else:
+            # 处理失败的情况
+            error_message = result_data.get('return_msg', 'Unknown error')
+            frappe.log_error(message=error_message, title="WeChat Pay Notify Error")
+            return wechat_fail_response(error_message)
+    except WeChatPayException as e:
+        frappe.log_error(message=str(e), title="WeChat Pay Exception")
+        return wechat_fail_response(str(e))
+    except Exception as e:
+        frappe.log_error(message=str(e), title="WeChat Pay Notify Exception")
+        return wechat_fail_response(str(e))
+
+
+@frappe.whitelist(allow_guest=True)
+def wechat_pay_notify_member():
+    # 获取微信发送的支付结果通知数据（XML 格式）
+    try:
+        # 从请求中获取原始的 XML 数据
+        xml_data = frappe.request.data
+        # 将 XML 数据解析为字典
+        wechat_pay = get_wechat_pay_client()
+        result_data = wechat_pay.parse_payment_result(xml_data)
+
+        # 验证签名
+        if result_data['return_code'] == 'SUCCESS' and result_data['result_code'] == 'SUCCESS':
+            out_trade_no = result_data['out_trade_no']  # 商户订单号
+            transaction_id = result_data['transaction_id']  # 微信支付订单号
+            total_fee = result_data['total_fee']  # 订单金额，单位为分
+            openid = result_data['openid']  # 用户标识
+
+            # 执行 SQL 更新
+            frappe.db.sql("""
+                        UPDATE `tabLy Membership Payment`
+                       SET `pay_state` = %s,`transaction_id`= %s
+                       WHERE `order_number` = %s
+                   """, ('已支付',transaction_id, out_trade_no))
+
+            # 提交事务
+            frappe.db.commit()
 
             # 返回成功响应给微信服务器
             return wechat_success_response()
