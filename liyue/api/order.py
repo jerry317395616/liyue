@@ -7,11 +7,52 @@ def get_order_list():
 	user_id = frappe.form_dict.get('user_id')
 	all_names = frappe.get_all('Ly Sales Order', fields=['name'],filters=[["Ly Sales Order","customer","=",user_id]])
 
+	# 初始化用于存储包含图片信息的订单列表
+	orders_with_images = []
 	# 逐一加载每个文档
 	all_docs = []
+	# 收集所有的 item_code，用于批量获取图片信息
+	item_codes = set()
 	for record in all_names:
 		doc = frappe.get_doc('Ly Sales Order', record.name)
 		all_docs.append(doc)
+		# 确保 order_item 是正确的字段名，可能需要根据实际情况调整
+		for order_item in doc.order_item:
+			# 获取 item_code
+			item_code = order_item.item
+			item_codes.add(item_code)
+
+	# 批量获取所有 item 的图片信息
+	item_images = {}
+	if item_codes:
+		# 获取所有相关的 Ly Item 文档，只获取 name 和 image 字段
+		items = frappe.get_all(
+			'Ly Item',
+			filters={'name': ['in', list(item_codes)]},
+			fields=['name', 'image']
+		)
+		# 构建 item_code 到 image 的映射
+		item_images = {item['name']: item['image'] for item in items}
+
+	# 第二次遍历，构建包含图片信息的订单列表
+	for record in all_names:
+		order_doc = frappe.get_doc('Ly Sales Order', record.name)
+		order_data = order_doc.as_dict()
+
+		# 构建新的 order_item 列表，包含图片信息
+		order_items_with_images = []
+		for order_item in order_doc.order_item:
+			order_item_data = order_item.as_dict()
+			item_code = order_item.item
+			# 添加图片信息到 order_item_data
+			order_item_data['image'] = item_images.get(item_code)
+			order_items_with_images.append(order_item_data)
+
+		# 替换订单中的 order_item 列表
+		order_data['order_item'] = order_items_with_images
+		orders_with_images.append(order_data)
+
+	return orders_with_images
 
 	return all_docs
 
