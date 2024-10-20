@@ -231,7 +231,7 @@ def wechat_pay_notify_member():
             frappe.db.sql("""
                            UPDATE `tabLy User`
                            SET `member_level` = %s
-                       """, ('普通会员',))
+                       """, ('付费会员',))
             # 提交事务
             frappe.db.commit()
 
