@@ -227,11 +227,22 @@ def wechat_pay_notify_member():
                        SET `pay_state` = %s,`transaction_id`= %s
                        WHERE `order_number` = %s
                    """, ('已支付',transaction_id, out_trade_no))
-            # 更新所有用户
-            frappe.db.sql("""
-                           UPDATE `tabLy User`
-                           SET `member_level` = %s
-                       """, ('付费会员',))
+
+            result = frappe.db.sql("""
+                        SELECT `parent`
+                        FROM `tabLy Membership Payment`
+                        WHERE `order_number` = %s
+                       """, (out_trade_no,), as_dict=True)
+
+            if result:
+				user_id = result[0]['parent']
+				# 更新所有用户
+				frappe.db.sql("""
+				                          UPDATE `tabLy User`
+				                          SET `member_level` = %s WHERE `name` = %s
+				                      """, ('付费会员',user_id))
+
+
             # 提交事务
             frappe.db.commit()
 
