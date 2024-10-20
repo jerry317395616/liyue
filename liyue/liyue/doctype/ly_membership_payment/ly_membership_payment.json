@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "amount",
+  "order_number",
   "column_break_ddzl",
   "date"
  ],
@@ -26,12 +27,17 @@
    "fieldtype": "Datetime",
    "in_list_view": 1,
    "label": "\u7eed\u8d39\u65e5\u671f"
+  },
+  {
+   "fieldname": "order_number",
+   "fieldtype": "Data",
+   "label": "\u8ba2\u5355\u53f7"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-08-25 11:28:32.425547",
+ "modified": "2024-10-20 15:04:42.308031",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Membership Payment",

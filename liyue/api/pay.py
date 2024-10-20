@@ -50,7 +50,8 @@ def create_order(**kwargs):
         # 向子表添加新的记录
         user.append('table_membership_payment', {
             'amount': amount,
-            'date': date
+            'date': date,
+			'order_number':order_number
         })
 
         # 保存用户文档
