@@ -235,9 +235,9 @@ def wechat_pay_notify_member():
                        """, (out_trade_no,), as_dict=True)
 
             if result:
-				user_id = result[0]['parent']
-				# 更新所有用户
-				frappe.db.sql("""
+                user_id = result[0]['parent']
+                # 更新所有用户
+                frappe.db.sql("""
 				                          UPDATE `tabLy User`
 				                          SET `member_level` = %s WHERE `name` = %s
 				                      """, ('付费会员',user_id))
