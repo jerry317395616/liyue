@@ -80,3 +80,34 @@ def save_address():
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "update_address_batch_error")
         return {"status": "error", "message": str(e)}
+
+
+@frappe.whitelist(allow_guest=True)  # 设置为 False 需要认证，True 允许未认证访问
+def get_membership_payments():
+    """
+    获取指定 parent 的所有已支付且日期在过去一年内的会员支付记录。
+
+    :param parent: str, parent 的值
+    :return: dict, 包含查询结果的列表
+    """
+    parent = frappe.form_dict.get('user_id')
+    if not parent:
+        frappe.throw("Parameter 'parent' is required.")
+
+    # 编写原始 SQL 查询，使用参数化查询以防止 SQL 注入
+    query = """
+		SELECT *
+		FROM `tabLy Membership Payment`
+		WHERE `parent` = %(parent)s
+		  AND `pay_state` = '已支付'
+		  AND `date` >= DATE_SUB(NOW(), INTERVAL 1 YEAR)
+		ORDER BY `date` DESC
+	"""
+
+    # 执行查询
+    payments = frappe.db.sql(query, {"parent": parent}, as_dict=True)
+
+    return {
+		"status": "success",
+		"data": payments
+	}
