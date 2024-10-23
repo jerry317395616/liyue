@@ -151,3 +151,23 @@ def get_order_detail():
         frappe.log_error(message=str(e), title="Get Order Detail Error")
         frappe.throw("An unexpected error occurred while retrieving the order details.",
                      frappe.ValidationError)
+
+
+@frappe.whitelist(allow_guest=True)  # 设置是否允许游客访问
+def get_completed_sales_order(name):
+    """
+    获取状态为 '已完成' 且名称为指定值的 Ly Sales Order
+
+    :param name: 销售订单的名称
+    :return: 查询结果列表
+    """
+    if not name:
+        frappe.throw("参数 'name' 是必需的")
+
+    # 执行 SQL 查询
+    query = """
+        SELECT * FROM `tabLy Sales Order`
+        WHERE status = '已完成' AND name = %s
+    """
+    results = frappe.db.sql(query, (name,), as_dict=True)
+    return results
