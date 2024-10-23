@@ -139,3 +139,16 @@ def save_addresses(user_id, addresses):
         # 未知错误
         frappe.log_error(message=str(e), title="Save Addresses Failed")
         frappe.throw(_("保存地址信息失败: {0}").format(str(e)))
+
+@frappe.whitelist(allow_guest=True)
+def get_addresses(user_id):
+
+	# 检查地址是否已存在
+	query = """
+	               SELECT * FROM `tabLy Address`
+	               WHERE parent = %(parent)s
+	           """
+	result = frappe.db.sql(query, {
+		"parent": user_id,
+	}, as_dict=True)
+	return result
