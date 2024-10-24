@@ -171,3 +171,29 @@ def get_completed_sales_order(name):
     """
     results = frappe.db.sql(query, (name,), as_dict=True)
     return results
+
+@frappe.whitelist(allow_guest=True)
+def submit_rating(name,rating):
+	try:
+		# 验证输入参数
+		if not name:
+			frappe.throw("参数 'name' 是必需的。")
+		if rating is None:
+			frappe.throw("参数 'rating' 是必需的。")
+
+		# 使用原生 SQL 更新 rating
+		frappe.db.sql("""
+				UPDATE `tabLy Sales Order`
+				SET `rating` = %s
+				WHERE `name` = %s
+			""", (rating, name))
+
+		# 提交事务
+		frappe.db.commit()
+
+		return "评分已成功更新。"
+
+	except frappe.DoesNotExistError:
+		frappe.throw("Ly Sales Order '{0}' 不存在。".format(name))
+	except Exception as e:
+		frappe.throw("更新评分时出错: {0}".format(str(e)))

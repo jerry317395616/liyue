@@ -8,6 +8,7 @@
   "customer",
   "status",
   "order_number",
+  "rating",
   "column_break_yvfc",
   "order_date",
   "total_amount",
@@ -80,11 +81,16 @@
    "fieldname": "order_video",
    "fieldtype": "Attach",
    "label": "\u4e0a\u4f20\u89c6\u9891"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Data",
+   "label": "\u8bc4\u4ef7\u5206\u503c"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-19 14:53:43.390178",
+ "modified": "2024-10-24 09:00:30.195289",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Sales Order",
