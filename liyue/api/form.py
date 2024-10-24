@@ -6,6 +6,7 @@ from frappe.utils.response import build_response
 import os
 from PIL import Image, ImageDraw, ImageFont
 import io
+from datetime import datetime
 
 @frappe.whitelist(allow_guest=True)
 def download_image(sales_order,image_type):
@@ -66,7 +67,7 @@ def download_image(sales_order,image_type):
 
             # 执行 SQL 查询
             result = frappe.db.sql("""
-            SELECT deceased_person_name AS name, address
+            SELECT deceased_person_name AS name, address,count
 			FROM `tabLy Form Generation`
 			WHERE parent = %s
 			LIMIT 1
@@ -81,6 +82,7 @@ def download_image(sales_order,image_type):
                 text = char_list1[0]
                 text2 = char_list1[1]
                 text3 = char_list1[2]
+                count = result[0].count
             # 初始化起始坐标
             x = 1150
             y = 250
@@ -101,6 +103,35 @@ def download_image(sales_order,image_type):
                 # 添加文字到图片
                 draw.text(position, name, font=font, fill=text_color)
                 y1 += 100
+
+            count_position = (int(230), int(350))
+            draw.text(count_position, str(count), font=font, fill=text_color)
+
+            if image_type == '3':
+
+                result1 = frappe.db.sql("""
+			         select item.item_name,toi.quantity from `tabLy Sales Order` tso
+			         left join `tabLy Order Item` toi on toi.parent = tso.name
+			            left join `tabLy Item` item on item.name = toi.item
+			         where tso.name= %s and item.item_name = '金元宝'
+			            	           	            """, (sales_order), as_dict=True)
+
+                count1 = result1[0].quantity
+                count_position1 = (int(900), int(350))
+                draw.text(count_position1, str(count1), font=font, fill=text_color)
+
+
+            now = datetime.now()
+            year = now.year
+            month = now.month
+            day = now.day
+            year_position = (int(10), int(150))
+            draw.text(year_position, str(year), font=font, fill=text_color)
+            month_position = (int(50), int(350))
+            draw.text(month_position, str(month), font=font, fill=text_color)
+            day_position = (int(50), int(500))
+            draw.text(day_position, str(day), font=font, fill=text_color)
+
 
             # 将修改后的图片保存到内存中
             img_byte_arr = io.BytesIO()
