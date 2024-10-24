@@ -77,18 +77,18 @@ def get_image_data(sales_order, image_type):
 
             count_position = (int(230), int(350))
             draw.text(count_position, str(count), font=font, fill=text_color)
-            if image_type == '3':
-                result1 = frappe.db.sql("""
-            			         select item.item_name,toi.quantity from `tabLy Sales Order` tso
-            			         left join `tabLy Order Item` toi on toi.parent = tso.name
-            			            left join `tabLy Item` item on item.name = toi.item
-            			         where tso.name= %s and item.item_name = '金元宝'
-            			            	           	            """, (sales_order),
-										as_dict=True)
-
-                count1 = result1[0].quantity
-                count_position1 = (int(900), int(350))
-                draw.text(count_position1, str(count1), font=font, fill=text_color)
+            # if image_type == '3':
+            #     result1 = frappe.db.sql("""
+            # 			         select item.item_name,toi.quantity from `tabLy Sales Order` tso
+            # 			         left join `tabLy Order Item` toi on toi.parent = tso.name
+            # 			            left join `tabLy Item` item on item.name = toi.item
+            # 			         where tso.name= %s and item.item_name = '金元宝'
+            # 			            	           	            """, (sales_order),
+			# 							as_dict=True)
+			#
+            #     count1 = result1[0].quantity
+            #     count_position1 = (int(900), int(350))
+            #     draw.text(count_position1, str(count1), font=font, fill=text_color)
 
             now = datetime.now()
             year = now.year
