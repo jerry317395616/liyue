@@ -9,6 +9,7 @@
   "status",
   "order_number",
   "rating",
+  "transaction_id",
   "column_break_yvfc",
   "order_date",
   "total_amount",
@@ -86,11 +87,16 @@
    "fieldname": "rating",
    "fieldtype": "Data",
    "label": "\u8bc4\u4ef7\u5206\u503c"
+  },
+  {
+   "fieldname": "transaction_id",
+   "fieldtype": "Data",
+   "label": "\u652f\u4ed8\u8ba2\u5355\u53f7"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-24 09:00:30.195289",
+ "modified": "2024-10-24 09:18:20.934727",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Sales Order",
