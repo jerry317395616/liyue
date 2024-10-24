@@ -36,11 +36,11 @@
   },
   {
    "fieldname": "category",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "\u5206\u7c7b",
-   "options": "Ly Item Category"
+   "options": "\u5e38\u7528\n\u5176\u4ed6"
   },
   {
    "fieldname": "price",
@@ -86,7 +86,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-18 08:54:01.891768",
+ "modified": "2024-10-24 21:47:49.850713",
  "modified_by": "Administrator",
  "module": "Liyue",
  "name": "Ly Item",
