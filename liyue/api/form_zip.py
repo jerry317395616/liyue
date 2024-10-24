@@ -90,7 +90,7 @@ def get_image_data(sales_order, image_type):
                 count_position1 = (int(900), int(350))
                 draw.text(count_position1, str(count1), font=font, fill=text_color)
 
-		now = datetime.now()
+            now = datetime.now()
             year = now.year
             month = now.month
             day = now.day
