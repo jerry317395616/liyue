@@ -90,16 +90,16 @@ def get_image_data(sales_order, image_type):
             #     count_position1 = (int(900), int(350))
             #     draw.text(count_position1, str(count1), font=font, fill=text_color)
 
-            now = datetime.now()
-            year = now.year
-            month = now.month
-            day = now.day
-            year_position = (int(10), int(150))
-            draw.text(year_position, str(year), font=font, fill=text_color)
-            month_position = (int(50), int(350))
-            draw.text(month_position, str(month), font=font, fill=text_color)
-            day_position = (int(50), int(500))
-            draw.text(day_position, str(day), font=font, fill=text_color)
+            # now = datetime.now()
+            # year = now.year
+            # month = now.month
+            # day = now.day
+            # year_position = (int(10), int(150))
+            # draw.text(year_position, str(year), font=font, fill=text_color)
+            # month_position = (int(50), int(350))
+            # draw.text(month_position, str(month), font=font, fill=text_color)
+            # day_position = (int(50), int(500))
+            # draw.text(day_position, str(day), font=font, fill=text_color)
 
             # 将修改后的图片保存到内存中
             img_byte_arr = io.BytesIO()
